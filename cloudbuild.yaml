@@ -28,7 +28,7 @@ steps:
       - 'set'
       - 'image'
       - 'deployment/deployment-1'
-      - 'my-container=asia-south2-docker.pkg.dev/deft-manifest-450908-e3/myimage/myimage:$SHORT_SHA'
+      - 'myimage-sha256-1=asia-south2-docker.pkg.dev/deft-manifest-450908-e3/myimage/myimage:$SHORT_SHA'
     env:
       - 'CLOUDSDK_COMPUTE_REGION=us-central1'
       - 'CLOUDSDK_CONTAINER_CLUSTER=autopilot-cluster-1'
