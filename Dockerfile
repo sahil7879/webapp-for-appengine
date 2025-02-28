@@ -13,4 +13,4 @@ RUN dotnet publish -c Release -o out
 FROM mcr.microsoft.com/dotnet/aspnet:8.0
 WORKDIR /app
 COPY --from=build /source/out .
-ENTRYPOINT ["dotnet", "webapp1.dll"]
+ENTRYPOINT ["dotnet", "webapp.dll"]
