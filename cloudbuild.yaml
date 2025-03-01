@@ -4,14 +4,14 @@ steps:
     args:
       - 'build'
       - '-t'
-      - 'asia-south2-docker.pkg.dev/deft-manifest-450908-e3/myimage/myimage:$SHORT_SHA'
+      - 'asia-south1-docker.pkg.dev/deft-manifest-450908-e3/myimage/myimage:$SHORT_SHA'
       - '.'
 
   # Step 2: Push the image to Artifact Registry
   - name: 'gcr.io/cloud-builders/docker'
     args:
       - 'push'
-      - 'asia-south2-docker.pkg.dev/deft-manifest-450908-e3/myimage/myimage:$SHORT_SHA'
+      - 'asia-south1-docker.pkg.dev/deft-manifest-450908-e3/myimage/myimage:$SHORT_SHA'
   
   # Step 3: Authenticate with GKE (NEW STEP)
   - name: 'gcr.io/cloud-builders/gcloud'
@@ -28,12 +28,12 @@ steps:
       - 'set'
       - 'image'
       - 'deployment/deployment-1'
-      - 'myimage-sha256-1=asia-south2-docker.pkg.dev/deft-manifest-450908-e3/myimage/myimage:$SHORT_SHA'
+      - 'myimage-sha256-1=asia-south1-docker.pkg.dev/deft-manifest-450908-e3/myimage/myimage:$SHORT_SHA'
     env:
       - 'CLOUDSDK_COMPUTE_REGION=us-central1'
       - 'CLOUDSDK_CONTAINER_CLUSTER=autopilot-cluster-1'
 images:
-  - 'asia-south2-docker.pkg.dev/deft-manifest-450908-e3/myimage/myimage:$SHORT_SHA'
+  - 'asia-south1-docker.pkg.dev/deft-manifest-450908-e3/myimage/myimage:$SHORT_SHA'
 
 options:
   logging: CLOUD_LOGGING_ONLY  # Store logs in Cloud Logging
